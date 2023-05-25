@@ -1,0 +1,125 @@
+name: RolePlayMod
+version: 1.0
+api-version: 1.19
+main: my.roleplay.mod.roleplaymod.RoleplayMod
+author: FrankNat
+description: Plugin per il roleplay in Minecraft
+
+commands:
+  info:
+    description: Ottieni informazioni sul plugin
+    usage: /info
+    permission: roleplaymod.info
+    
+  me:
+    description: Esegui un'azione di roleplay
+    usage: /me <messaggio>
+    permission: roleplaymod.me
+    
+  saldo:
+    description: Ottieni informazioni sul saldo
+    usage: /saldo
+    permission: roleplaymod.saldo
+    
+  paga:
+    description: Paga un giocatore
+    usage: /paga
+    permission: roleplaymod.paga
+    
+  modificasaldo:
+    description: Modifica il saldo di un giocatore
+    usage: /modificasaldo
+    permission: roleplaymod.modificasaldo
+    
+  visualizzasaldo:
+    description: Visualizza il saldo di un giocatore
+    usage: /visualizzasaldo
+    permission: roleplaymod.visualizzasaldo
+    
+  lega:
+    description: Lega un giocatore
+    usage: /lega
+    permission: roleplaymod.lega 
+    
+  slega:
+    description: Slega un giocatore
+    usage: /slega
+    permission: roleplaymod.slega
+    
+  liberati:
+    description: Liberati da una corda
+    usage: /liberati
+    permission: roleplaymod.liberati 
+    
+  trascina:
+    description: Trascina un giocatore
+    usage: /trascina
+    permission: roleplaymod.trascina
+    
+  cercainventario:
+    description: Apri l'inventario di un player
+    usage: /cercainventario
+    permission: roleplaymod.cercainventario
+    
+  statistiche:
+    description: Guarda le tue statistiche
+    usage: /statistiche
+    permission: roleplaymod.statistiche
+    
+  modificastats:
+    description: Modifica le statistiche
+    usage: /modificastats
+    permission: roleplaymod.modificastats
+
+permissions:
+  roleplaymod.info:
+    description: Permetti l'uso del comando /info
+    default: true
+    
+  roleplaymod.do:
+    description: Permetti l'uso del comando /do
+    default: true
+
+  roleplaymod.saldo:
+    description: Permetti l'uso del comando /saldo
+    default: true
+    
+  roleplaymod.paga:
+    description: Permetti l'uso del comando /paga
+    default: true
+    
+  roleplaymod.visualizzasaldo:
+    description: Permetti l'uso del comando /visualizzasaldo
+    default: true
+    
+  roleplaymod.modificasaldo:
+    description: Permetti l'uso del comando /modificasaldo
+    default: true
+    
+  roleplaymod.lega:
+    description: Permetti l'uso del comando /lega
+    default: true
+    
+  roleplaymod.slega:
+    description: Permetti l'uso del comando /slega
+    default: true
+    
+  roleplaymod.liberati:
+    description: Permetti l'uso del comando /liberati
+    default: true
+    
+  roleplaymod.trascina:
+    description: Permetti l'uso del comando /trascina
+    default: true
+    
+  roleplaymod.cercainventario:
+    description: Permetti l'uso del comando /cercainventario
+    default: true
+    
+  roleplaymod.statistiche:
+    description: Permetti l'uso del comando /statistiche
+    default: true
+    
+  roleplaymod.modificastats:
+    description: Permetti l'uso del comando /modificastats
+    default: true
