@@ -41,6 +41,8 @@ Operators-only command to display a player's balance
 ### /statistiche
 Command showing the character's statistics.
 Currently only the strength statistic is available
+>The strength statistic increases by killing monsters or players, at strength level 1 you can only use wooden swords and stone swords, the others are unlocked by leveling up.
+I am working on integrating the other tools as well
 
 ### /modificastats
 A command that can only be used by Operators, whic allows to edit a player's stats.
