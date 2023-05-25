@@ -30,8 +30,8 @@ Allow you to pay another player
 /modificasaldo
 A command that can only be used by Operators, which allows a player's balance to be increased or decreased.
 Correct usage: 
-/modify balance nickname 100
-/change nickname balance -100
+/modificasaldo nickname 100
+/modificasaldo nickname -100
 
 /visualizzasaldo
 Operators-only command to display a player's balance
