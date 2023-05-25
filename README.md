@@ -46,7 +46,7 @@ Correct usage:
 /modificastats nickname forza 10  (Forza means strength in Italian)
 /modificastats nickname forza -10
 
-#TODO
+# TODO
 I will soon put all the text strings in a file so that it will be easier to translate the plugin into other languages.
 
 
