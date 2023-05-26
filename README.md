@@ -53,7 +53,7 @@ Correct usage:
 > /modificastats nickname forza -10
 
 # TODO
-I will soon put all the text strings in a file so that it will be easier to translate the plugin into other languages.
+Complete system of tools that can be used according to strength
 
 
 
