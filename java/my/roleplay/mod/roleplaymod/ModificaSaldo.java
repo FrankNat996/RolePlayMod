@@ -15,9 +15,9 @@ public class ModificaSaldo implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (cmd.getName().equalsIgnoreCase("modificasaldo")) {
+        if (cmd.getName().equalsIgnoreCase("editbalance")) {
             if (!(sender instanceof Player)) {
-                sender.sendMessage(ChatColor.RED + "Questo comando può essere eseguito solo da un giocatore.");
+            	sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("player-only-command"));
                 return true;
             }
 
@@ -25,13 +25,13 @@ public class ModificaSaldo implements CommandExecutor {
 
             // Controllo se il giocatore è un operatore
             if (!player.isOp()) {
-                player.sendMessage(ChatColor.RED + "Devi essere un operatore per utilizzare questo comando.");
+            	player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("op-only-command"));
                 return true;
             }
 
             // Controllo se sono stati specificati i parametri corretti
             if (args.length < 2) {
-                player.sendMessage(ChatColor.RED + "Utilizzo corretto: /modificasaldo <nome_giocatore> <quantità>");
+            	player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("correct-usage-editbalance"));
                 return true;
             }
 
@@ -41,24 +41,24 @@ public class ModificaSaldo implements CommandExecutor {
             try {
                 amount = Double.parseDouble(args[1]);
             } catch (NumberFormatException e) {
-                player.sendMessage(ChatColor.RED + "La quantità specificata non è valida.");
+            	player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("wrong-amount-editbalance"));
                 return true;
             }
 
             // Controllo se il giocatore esiste
             Player targetPlayer = player.getServer().getPlayer(targetPlayerName);
             if (targetPlayer == null) {
-                player.sendMessage(ChatColor.RED + "Giocatore non trovato.");
+            	player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-online"));
                 return true;
             }
 
             // Aggiungo o rimuovo il saldo
             if (amount >= 0) {
                 economyManager.deposit(targetPlayer, amount);
-                player.sendMessage(ChatColor.GREEN + "Aggiunto " + amount + " al saldo di " + targetPlayerName + ".");
+                player.sendMessage(ChatColor.GREEN + RoleplayMod.getInstance().getMessage("added") + amount + RoleplayMod.getInstance().getMessage("added-to") + targetPlayerName + ".");
             } else {
                 economyManager.withdraw(targetPlayer, -amount);
-                player.sendMessage(ChatColor.GREEN + "Rimosso " + (-amount) + " dal saldo di " + targetPlayerName + ".");
+                player.sendMessage(ChatColor.GREEN + RoleplayMod.getInstance().getMessage("removed") + (-amount) + RoleplayMod.getInstance().getMessage("removed-to") + targetPlayerName + ".");
             }
 
             return true;

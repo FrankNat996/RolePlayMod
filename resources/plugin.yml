@@ -16,110 +16,106 @@ commands:
     usage: /me <messaggio>
     permission: roleplaymod.me
     
-  saldo:
+  balance:
     description: Ottieni informazioni sul saldo
-    usage: /saldo
-    permission: roleplaymod.saldo
+    usage: /balance
+    permission: roleplaymod.balance
     
-  paga:
+  pay:
     description: Paga un giocatore
-    usage: /paga
-    permission: roleplaymod.paga
+    usage: /pay
+    permission: roleplaymod.pay
     
-  modificasaldo:
-    description: Modifica il saldo di un giocatore
-    usage: /modificasaldo
-    permission: roleplaymod.modificasaldo
+  editbalance:
+    description: Modifica il balance di un giocatore
+    usage: /editbalance
+    permission: roleplaymod.editbalance
     
-  visualizzasaldo:
+  showbalance:
     description: Visualizza il saldo di un giocatore
-    usage: /visualizzasaldo
-    permission: roleplaymod.visualizzasaldo
+    usage: /showbalance
+    permission: roleplaymod.showbalance
     
-  lega:
+  tie:
     description: Lega un giocatore
-    usage: /lega
-    permission: roleplaymod.lega 
+    usage: /tie
+    permission: roleplaymod.tie 
     
-  slega:
+  untie:
     description: Slega un giocatore
-    usage: /slega
-    permission: roleplaymod.slega
+    usage: /untie
+    permission: roleplaymod.untie
     
-  liberati:
-    description: Liberati da una corda
-    usage: /liberati
-    permission: roleplaymod.liberati 
+  free:
+    description: free da una corda
+    usage: /free
+    permission: roleplaymod.free 
     
-  trascina:
-    description: Trascina un giocatore
-    usage: /trascina
-    permission: roleplaymod.trascina
+  drag:
+    description: drag un giocatore
+    usage: /drag
+    permission: roleplaymod.drag
     
-  cercainventario:
+  searchinventory:
     description: Apri l'inventario di un player
-    usage: /cercainventario
-    permission: roleplaymod.cercainventario
+    usage: /searchinventory
+    permission: roleplaymod.searchinventory
     
-  statistiche:
-    description: Guarda le tue statistiche
-    usage: /statistiche
-    permission: roleplaymod.statistiche
+  stats:
+    description: Guarda le tue stats
+    usage: /stats
+    permission: roleplaymod.stats
     
-  modificastats:
-    description: Modifica le statistiche
-    usage: /modificastats
-    permission: roleplaymod.modificastats
+  editstats:
+    description: Modifica le stats
+    usage: /editstats
+    permission: roleplaymod.editstats
 
 permissions:
   roleplaymod.info:
     description: Permetti l'uso del comando /info
     default: true
-    
-  roleplaymod.do:
-    description: Permetti l'uso del comando /do
-    default: true
 
-  roleplaymod.saldo:
-    description: Permetti l'uso del comando /saldo
+  roleplaymod.balance:
+    description: Permetti l'uso del comando /balance
     default: true
     
-  roleplaymod.paga:
-    description: Permetti l'uso del comando /paga
+  roleplaymod.pay:
+    description: Permetti l'uso del comando /pay
     default: true
     
-  roleplaymod.visualizzasaldo:
-    description: Permetti l'uso del comando /visualizzasaldo
+  roleplaymod.showbalance:
+    description: Permetti l'uso del comando /showbalance
     default: true
     
-  roleplaymod.modificasaldo:
-    description: Permetti l'uso del comando /modificasaldo
+  roleplaymod.editbalance:
+    description: Permetti l'uso del comando /editbalance
     default: true
     
-  roleplaymod.lega:
-    description: Permetti l'uso del comando /lega
+  roleplaymod.tie:
+    description: Permetti l'uso del comando /tie
     default: true
     
-  roleplaymod.slega:
-    description: Permetti l'uso del comando /slega
+  roleplaymod.untie:
+    description: Permetti l'uso del comando /untie
     default: true
     
-  roleplaymod.liberati:
-    description: Permetti l'uso del comando /liberati
+  roleplaymod.free:
+    description: Permetti l'uso del comando /free
     default: true
     
-  roleplaymod.trascina:
-    description: Permetti l'uso del comando /trascina
+  roleplaymod.drag:
+    description: Permetti l'uso del comando /drag
     default: true
     
-  roleplaymod.cercainventario:
-    description: Permetti l'uso del comando /cercainventario
+  roleplaymod.searchinventory:
+    description: Permetti l'uso del comando /searchinventory
     default: true
     
-  roleplaymod.statistiche:
-    description: Permetti l'uso del comando /statistiche
+  roleplaymod.stats:
+    description: Permetti l'uso del comando /stats
     default: true
     
-  roleplaymod.modificastats:
-    description: Permetti l'uso del comando /modificastats
+  roleplaymod.editstats:
+    description: Permetti l'uso del comando /editstats
     default: true

@@ -15,16 +15,16 @@ public class PaymentCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (cmd.getName().equalsIgnoreCase("paga")) {
+        if (cmd.getName().equalsIgnoreCase("pay")) {
             if (!(sender instanceof Player)) {
-                sender.sendMessage(ChatColor.RED + "Questo comando può essere eseguito solo da un giocatore!");
+            	sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("player-only-command"));
                 return true;
             }
 
             Player player = (Player) sender;
 
             if (args.length < 2) {
-                player.sendMessage(ChatColor.RED + "Utilizzo corretto: /paga <nome_giocatore> <somma>");
+                player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("correct-usage-pay"));
                 return true;
             }
 
@@ -34,32 +34,32 @@ public class PaymentCommand implements CommandExecutor {
             try {
                 amount = Double.parseDouble(args[1]);
             } catch (NumberFormatException e) {
-                player.sendMessage(ChatColor.RED + "La somma specificata non è valida.");
+            	 player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("wrong-pay-amount"));
                 return true;
             }
 
             if (amount <= 0) {
-                player.sendMessage(ChatColor.RED + "La somma deve essere maggiore di zero.");
+            	player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("paymorezero"));
                 return true;
             }
 
             Player receiver = player.getServer().getPlayer(receiverName);
 
             if (receiver == null) {
-                player.sendMessage(ChatColor.RED + "Il giocatore specificato non è online.");
+            	player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-online"));
                 return true;
             }
 
             if (!economyManager.hasEnoughBalance(player, amount)) {
-                player.sendMessage(ChatColor.RED + "Non hai abbastanza monete per effettuare questo pagamento.");
+            	player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-enough-money"));
                 return true;
             }
 
             economyManager.withdraw(player, amount);
             economyManager.deposit(receiver, amount);
 
-            player.sendMessage(ChatColor.GREEN + "Hai pagato " + receiver.getName() + " " + amount + " monete.");
-            receiver.sendMessage(ChatColor.GREEN + "Hai ricevuto un pagamento di " + amount + " monete da " + player.getName() + ".");
+            player.sendMessage(ChatColor.GREEN + RoleplayMod.getInstance().getMessage("have-payed") + receiver.getName() + " " + amount + " " + RoleplayMod.getInstance().getMessage("money"));
+            receiver.sendMessage(ChatColor.GREEN + RoleplayMod.getInstance().getMessage("received-pay") + amount + RoleplayMod.getInstance().getMessage("money-from") + player.getName() + ".");
 
             return true;
         }

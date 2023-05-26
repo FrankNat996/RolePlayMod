@@ -1,5 +1,6 @@
 package my.roleplay.mod.roleplaymod;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,7 +16,7 @@ public class StatsCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Questo comando può essere eseguito solo da un giocatore.");
+        	sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("player-only-command"));
             return true;
         }
 
@@ -26,8 +27,8 @@ public class StatsCommand implements CommandExecutor {
         int destrezza = statsManager.getStat(playerName, "destrezza");
         int fortuna = statsManager.getStat(playerName, "fortuna");
 
-        player.sendMessage("Le tue statistiche:");
-        player.sendMessage("Forza=" + forza);
+        player.sendMessage(ChatColor.GREEN + RoleplayMod.getInstance().getMessage("your-stats"));
+        player.sendMessage(RoleplayMod.getInstance().getMessage("strength") + forza);
         //player.sendMessage("Forza=" + forza + ", Destrezza=" + destrezza + ", Fortuna=" + fortuna);
 
         return true;

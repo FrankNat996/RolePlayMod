@@ -1,5 +1,6 @@
 package my.roleplay.mod.roleplaymod;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -31,31 +32,31 @@ public class SwordManager implements Listener {
         //SPADE ##########################################################
         if (forza < 1 && (item.getType() == Material.WOODEN_SWORD || item.getType() == Material.STONE_SWORD)) {
             event.setCancelled(true);
-            player.sendMessage("Non hai abbastanza Forza per utilizzare questa spada.");
+            player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-enough-strength"));
             return;
         }
 
         if (forza < 5 && (item.getType() == Material.IRON_SWORD)) {
             event.setCancelled(true);
-            player.sendMessage("Non hai abbastanza Forza per utilizzare questa spada.");
+            player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-enough-strength5"));
             return;
         }
         
         if (forza < 5 && (item.getType() == Material.GOLDEN_SWORD)) {
             event.setCancelled(true);
-            player.sendMessage("Non hai abbastanza Forza per utilizzare questa spada.");
+            player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-enough-strength5"));
             return;
         }
 
         if (forza < 10 && item.getType() == Material.DIAMOND_SWORD) {
             event.setCancelled(true);
-            player.sendMessage("Non hai abbastanza Forza per utilizzare questa spada.");
+            player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-enough-strength10"));
             return;
         }
 
         if (forza < 15 && item.getType() == Material.NETHERITE_SWORD) {
             event.setCancelled(true);
-            player.sendMessage("Non hai abbastanza Forza per utilizzare questa spada.");
+            player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-enough-strength15"));
         }
     }
 
@@ -78,31 +79,31 @@ public class SwordManager implements Listener {
         //SPADE MOB ##################################################################
         if (forza < 1 && (item.getType() == Material.WOODEN_SWORD || item.getType() == Material.STONE_SWORD)) {
             event.setCancelled(true);
-            player.sendMessage("Non hai abbastanza Forza per utilizzare questa spada.");
+            player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-enough-strength"));
             return;
         }
 
         if (forza < 5 && (item.getType() == Material.IRON_SWORD)) {
             event.setCancelled(true);
-            player.sendMessage("Non hai abbastanza Forza per utilizzare questa spada.");
+            player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-enough-strength5"));
             return;
         }
         
         if (forza < 5 && (item.getType() == Material.GOLDEN_SWORD)) {
             event.setCancelled(true);
-            player.sendMessage("Non hai abbastanza Forza per utilizzare questa spada.");
+            player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-enough-strength5"));
             return;
         }
 
         if (forza < 10 && item.getType() == Material.DIAMOND_SWORD) {
             event.setCancelled(true);
-            player.sendMessage("Non hai abbastanza Forza per utilizzare questa spada.");
+            player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-enough-strength10"));
             return;
         }
 
         if (forza < 15 && item.getType() == Material.NETHERITE_SWORD) {
             event.setCancelled(true);
-            player.sendMessage("Non hai abbastanza Forza per utilizzare questa spada.");
+            player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-enough-strength15"));
         }
     }
 

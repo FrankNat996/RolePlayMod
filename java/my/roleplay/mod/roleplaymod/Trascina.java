@@ -1,6 +1,7 @@
 package my.roleplay.mod.roleplaymod;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,13 +19,13 @@ public class Trascina implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         // Verifica se il comando è stato eseguito da un giocatore
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Questo comando può essere eseguito solo da un giocatore.");
+        	sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("player-only-command"));
             return true;
         }
 
         // Verifica se il giocatore ha specificato un nome di giocatore da trascinare
         if (args.length < 1) {
-            sender.sendMessage("Utilizzo corretto: /trascina <nome_giocatore>");
+            sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("correct-usage-drag"));
             return true;
         }
 
@@ -33,19 +34,19 @@ public class Trascina implements CommandExecutor {
 
         // Verifica se il giocatore specificato esiste ed è online
         if (trascinato == null || !trascinato.isOnline()) {
-            sender.sendMessage("Il giocatore specificato non è online o non esiste.");
+        	sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-online"));
             return true;
         }
 
         // Verifica se il trascinatore è abbastanza vicino al trascinato (2 blocchi di distanza)
         if (trascinatore.getLocation().distance(trascinato.getLocation()) > 2) {
-            sender.sendMessage("Sei troppo lontano dal giocatore da trascinare.");
+        	sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("too-far-drag"));
             return true;
         }
 
         // Verifica se il giocatore è legato
         if (!Lega.isPlayerBound(trascinato)) {
-            sender.sendMessage("Il giocatore non è legato. Non puoi trascinarlo.");
+        	sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("too-tie-no-drag"));
             return true;
         }
 
@@ -53,7 +54,7 @@ public class Trascina implements CommandExecutor {
         if (teleportTask != null) {
             teleportTask.cancel();
             teleportTask = null;
-            sender.sendMessage("Hai interrotto il trascinamento del giocatore " + trascinato.getName() + ".");
+            sender.sendMessage(RoleplayMod.getInstance().getMessage("stop-drag") + trascinato.getName() + ".");
             return true;
         }
 
@@ -79,7 +80,7 @@ public class Trascina implements CommandExecutor {
         // Avvia il task di teletrasporto in un intervallo di tempo
         teleportTask.runTaskTimer(RoleplayMod.getInstance(), 0, teleportInterval);
 
-        sender.sendMessage("Hai iniziato a trascinare il giocatore " + trascinato.getName() + ".");
+        sender.sendMessage(RoleplayMod.getInstance().getMessage("start-drag") + trascinato.getName() + ".");
         return true;
     }
 }

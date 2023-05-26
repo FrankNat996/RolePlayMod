@@ -1,6 +1,7 @@
 package my.roleplay.mod.roleplaymod;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -30,19 +31,19 @@ public class CercaInventario implements CommandExecutor {
                         	Inventory targetInventory = targetPlayer.getInventory();
                             player.openInventory(targetInventory);
                         } else {
-                            player.sendMessage("Il giocatore non è legato. Non puoi accedere al suo inventario.");
+                            player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-tie-inventory"));
                         }
                     } else {
-                        player.sendMessage("Devi essere a 2 blocchi di distanza dal giocatore per utilizzare questo comando.");
+                        player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("too-far"));
                     }
                 } else {
-                    player.sendMessage("Il giocatore specificato non è online.");
+                    player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-online"));
                 }
             } else {
-                player.sendMessage("Utilizzo comando: /cercainventario <nomegiocatore>");
+                player.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("correct-usage-searchinventory"));
             }
         } else {
-            sender.sendMessage("Questo comando può essere eseguito solo da un giocatore.");
+            sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("player-only-command"));
         }
 
         return true;

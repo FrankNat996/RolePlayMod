@@ -1,5 +1,6 @@
 package my.roleplay.mod.roleplaymod;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,12 +16,12 @@ public class ModificaStatsCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!sender.isOp()) {
-            sender.sendMessage("Devi essere un operatore per utilizzare questo comando.");
+        	sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("op-only-command"));
             return true;
         }
 
         if (args.length != 3) {
-            sender.sendMessage("Utilizzo corretto: /modificastats <nomeGiocatore> <statName> <amount>");
+        	sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("correct-usage-editstats"));
             return true;
         }
 
@@ -30,7 +31,7 @@ public class ModificaStatsCommand implements CommandExecutor {
         try {
             amount = Integer.parseInt(args[2]);
         } catch (NumberFormatException e) {
-            sender.sendMessage("L'amount deve essere un numero intero.");
+        	sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("int-amount"));
             return true;
         }
 
@@ -38,7 +39,7 @@ public class ModificaStatsCommand implements CommandExecutor {
         int newStat = currentStat + amount;
         statsManager.setStat(playerName, statName, newStat);
 
-        sender.sendMessage("La statistica " + statName + " del giocatore " + playerName + " è stata modificata. Nuovo valore: " + newStat);
+        sender.sendMessage(RoleplayMod.getInstance().getMessage("stats-string") + statName + RoleplayMod.getInstance().getMessage("stats-string2") + playerName + RoleplayMod.getInstance().getMessage("stats-string3") + newStat);
 
         return true;
     }

@@ -15,14 +15,14 @@ public class VisualizzaSaldo implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (cmd.getName().equalsIgnoreCase("visualizzasaldo")) {
+        if (cmd.getName().equalsIgnoreCase("showbalance")) {
             if (!sender.isOp()) {
-                sender.sendMessage(ChatColor.RED + "Questo comando può essere eseguito solo dagli operatori!");
+                sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("op-only-command"));
                 return true;
             }
 
             if (args.length != 1) {
-                sender.sendMessage(ChatColor.RED + "Utilizzo corretto: /visualizzasaldo <nome_giocatore>");
+            	sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("correct-usage-show-player-balance"));
                 return true;
             }
 
@@ -30,12 +30,12 @@ public class VisualizzaSaldo implements CommandExecutor {
             Player targetPlayer = sender.getServer().getPlayer(playerName);
 
             if (targetPlayer == null) {
-                sender.sendMessage(ChatColor.RED + "Il giocatore specificato non è online.");
+            	sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("not-online"));
                 return true;
             }
 
             double balance = economyManager.getBalance(targetPlayer);
-            sender.sendMessage(ChatColor.YELLOW + "Il saldo di " + targetPlayer.getName() + " è: " + balance + " monete.");
+            sender.sendMessage(ChatColor.YELLOW + RoleplayMod.getInstance().getMessage("player-balance") + targetPlayer.getName() + RoleplayMod.getInstance().getMessage("is") + balance + RoleplayMod.getInstance().getMessage("money"));
 
             return true;
         }

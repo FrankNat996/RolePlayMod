@@ -1,5 +1,6 @@
 package my.roleplay.mod.roleplaymod;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,7 +17,7 @@ public class Liberati implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Questo comando può essere eseguito solo da un giocatore.");
+        	sender.sendMessage(ChatColor.RED + RoleplayMod.getInstance().getMessage("player-only-command"));
             return true;
         }
 
@@ -28,7 +29,7 @@ public class Liberati implements CommandExecutor {
             long lastExecutionTime = cooldowns.get(player);
             long timeLeft = (COOLDOWN - (currentTime - lastExecutionTime)) / 1000; // Tempo rimanente in secondi
             if (currentTime - lastExecutionTime < COOLDOWN) {
-                player.sendMessage("Devi aspettare ancora " + timeLeft + " secondi prima di poter eseguire nuovamente questo comando.");
+                player.sendMessage(RoleplayMod.getInstance().getMessage("need-wait") + timeLeft + RoleplayMod.getInstance().getMessage("need-wait2"));
                 return true;
             }
         }
@@ -47,9 +48,9 @@ public class Liberati implements CommandExecutor {
             // Rimuovi il legame del giocatore utilizzando PlayerBinding
             Lega.unbindPlayer(player);
             player.setWalkSpeed(0.2f);
-            player.sendMessage("Ti sei liberato");
+            player.sendMessage(ChatColor.GREEN + RoleplayMod.getInstance().getMessage("free"));
         } else {
-            player.sendMessage("Non sei riuscito a liberarti.");
+        	player.sendMessage(ChatColor.DARK_PURPLE + RoleplayMod.getInstance().getMessage("not-free"));
         }
 
         cooldowns.put(player, currentTime); // Aggiorna il tempo dell'ultima esecuzione per il giocatore

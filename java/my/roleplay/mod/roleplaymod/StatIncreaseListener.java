@@ -1,5 +1,6 @@
 package my.roleplay.mod.roleplaymod;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -30,7 +31,7 @@ public class StatIncreaseListener implements Listener {
                 int currentForza = statsManager.getStat(playerName, "forza");
                 int newForza = currentForza + 1;
                 statsManager.setStat(playerName, "forza", newForza);
-                killer.sendMessage("La tua statistica 'Forza' è stata aumentata di 1!");
+                killer.sendMessage(ChatColor.GREEN + RoleplayMod.getInstance().getMessage("strength-up"));
              // Mostra l'effetto particellare di sfere di esperienza attorno al giocatore per 2 secondi
                 killer.getWorld().spawnParticle(Particle.GLOW, killer.getLocation().add(0, 1, 0), 100, 0.2, 0.2, 0.2, 0.05);
                 killer.playSound(killer.getLocation(), Sound.ENTITY_WARDEN_ROAR, 1.0f, 1.0f);
