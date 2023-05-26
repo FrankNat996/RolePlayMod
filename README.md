@@ -54,6 +54,7 @@ Correct usage:
 
 # TODO
 Complete system of tools that can be used according to strength
+
 Translation of variables related to strength (at the moment you have to call it with "forza")
 
 
