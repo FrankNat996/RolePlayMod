@@ -1,73 +1,73 @@
 name: RolePlayMod
-version: 1.2
+version: 1.2.2
 api-version: 1.19
 main: my.roleplay.mod.roleplaymod.RoleplayMod
 author: FrankNat
-description: Plugin per il roleplay in Minecraft
+description: Minecraft roleplay plugin
 
 commands:
   info:
-    description: Ottieni informazioni sul plugin
+    description: Get information about the plugin
     usage: /info
     permission: roleplaymod.info
     
   me:
-    description: Esegui un'azione di roleplay
+    description: Perform a roleplay action
     usage: /me <messaggio>
     permission: roleplaymod.me
     
   balance:
-    description: Ottieni informazioni sul saldo
+    description: Get balance information
     usage: /balance
     permission: roleplaymod.balance
     
   pay:
-    description: Paga un giocatore
+    description: Pay a player
     usage: /pay
     permission: roleplaymod.pay
     
   editbalance:
-    description: Modifica il balance di un giocatore
+    description: Modify a player's balance
     usage: /editbalance
     permission: roleplaymod.editbalance
     
   showbalance:
-    description: Visualizza il saldo di un giocatore
+    description: View a player's balance
     usage: /showbalance
     permission: roleplaymod.showbalance
     
   tie:
-    description: Lega un giocatore
+    description: Tie a player
     usage: /tie
     permission: roleplaymod.tie 
     
   untie:
-    description: Slega un giocatore
+    description: Untie a player
     usage: /untie
     permission: roleplaymod.untie
     
   free:
-    description: free da una corda
+    description: Free yourself from a rope
     usage: /free
     permission: roleplaymod.free 
     
   drag:
-    description: drag un giocatore
+    description: Drag a player
     usage: /drag
     permission: roleplaymod.drag
     
   searchinventory:
-    description: Apri l'inventario di un player
+    description: Open a player's inventory
     usage: /searchinventory
     permission: roleplaymod.searchinventory
     
   stats:
-    description: Guarda le tue stats
+    description: Watch your stats
     usage: /stats
     permission: roleplaymod.stats
     
   editstats:
-    description: Modifica le stats
+    description: Modify the stats
     usage: /editstats
     permission: roleplaymod.editstats
 
